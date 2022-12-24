@@ -28,6 +28,9 @@ void juego::iniciar()
 }
 void juego::dibujar()
 {
+	glClear(GL_COLOR_BUFFER_BIT);
+	cout << "Funciona" << endl;
+
 	glutSwapBuffers();
 
 }
@@ -39,7 +42,15 @@ void juego::procesar_teclado(unsigned char c, int x, int y)
 
 void juego::actualizar()
 {
-	glutPostRedisplay();
+	static float tiempo_transcurrido = 0;
+	if (glutGet(GLUT_ELAPSED_TIME) >  tiempo_transcurrido + 1.f/fps)
+	{
+
+
+		tiempo_transcurrido = glutGet(GLUT_ELAPSED_TIME);
+		glutPostRedisplay();
+	}
+	
 
 }
 

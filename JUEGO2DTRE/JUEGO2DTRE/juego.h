@@ -1,5 +1,8 @@
 #pragma once
 #include "GL\glut.h"
+#include <iostream>
+
+using namespace std;
 class juego
 {
 public:
