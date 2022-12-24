@@ -21,22 +21,26 @@ juego::juego()
 void juego::iniciar()
 {
 	glClearColor(0, 0, 1, 1);
-	glLineWidth(3.f);
-	glOrtho(800, 0, 600, 0, -1, 1);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+	glMatrixMode(GL_PROJECTION); glLoadIdentity();
+	glOrtho(0, w, 0, h, -1, 1);
+	glMatrixMode(GL_MODELVIEW);glLoadIdentity();
 }
 void juego::dibujar()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
-	cout << "Funciona" << endl;
+	//cout << "Funciona" << endl;
+	glPushMatrix();
 
+	glTranslatef(400, 300, 0);
+	dibujar_tablero();
+	glPopMatrix();
 	glutSwapBuffers();
 
 }
 
 void juego::procesar_teclado(unsigned char c, int x, int y)
 {
+
 
 }
 
@@ -51,6 +55,30 @@ void juego::actualizar()
 		glutPostRedisplay();
 	}
 	
+
+}
+
+void juego::dibujar_tablero()
+{
+	glPushMatrix();
+
+	glTranslatef(-150, 300, 0);
+
+	glColor3f(1, 1, 1);
+
+	glBegin(GL_QUAD_STRIP);
+
+	glVertex2f(0, 0);
+
+	glVertex2f(300, 0);
+
+	glVertex2f(0, -600);
+
+	glVertex2f(300, -600);
+
+	glEnd();
+
+	glPopMatrix();
 
 }
 
