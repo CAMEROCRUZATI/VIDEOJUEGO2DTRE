@@ -2,6 +2,7 @@
 
 int juego::w = 800, juego::h = 600;
 float juego::fps = 60.f;
+cuadrado juego::obj1;
 juego::juego()
 {
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
@@ -33,6 +34,9 @@ void juego::dibujar()
 
 	glTranslatef(400, 300, 0);
 	dibujar_tablero();
+
+	obj1.dibujar();
+	
 	glPopMatrix();
 	glutSwapBuffers();
 
@@ -47,10 +51,16 @@ void juego::procesar_teclado(unsigned char c, int x, int y)
 void juego::actualizar()
 {
 	static float tiempo_transcurrido = 0;
+
+	static float actualizar_cuadrado = 0;
 	if (glutGet(GLUT_ELAPSED_TIME) >  tiempo_transcurrido + 1.f/fps)
 	{
 
-
+		if (glutGet(GLUT_ELAPSED_TIME) > actualizar_cuadrado + 1000.f)
+		{
+			actualizar_cuadrado = glutGet(GLUT_ELAPSED_TIME);
+			obj1.actualizar();
+		}
 		tiempo_transcurrido = glutGet(GLUT_ELAPSED_TIME);
 		glutPostRedisplay();
 	}

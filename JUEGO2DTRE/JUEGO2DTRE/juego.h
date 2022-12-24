@@ -1,5 +1,6 @@
 #pragma once
 #include "GL\glut.h"
+#include "cuadrado.h"
 #include <iostream>
 
 using namespace std;
@@ -16,4 +17,5 @@ public:
 private:
 	static int  w ,h;
 	static float fps;
+	static cuadrado  obj1;
 };
