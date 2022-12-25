@@ -111,19 +111,33 @@ void figura::dibujar()
 
 void figura::set_x(double x)
 {
+	bool hay_colision = false;
 	if (x > 0)
 	{
-		if (pos_x < 135)
+		for (int i = 0; i < 4; i++)
 		{
-			pos_x += x;
-		}
-		else
-		{
-			if (pos_x > -135)
+			if (abs((int)calcular_posicion_x(i) - 130) < 15)
 			{
-				pos_x += x;
+				hay_colision = true;
 			}
 		}
+	}
+	else
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			if (abs((int)calcular_posicion_x(i) - 130) < 15)
+			{
+				hay_colision = true;
+
+			}
+		}
+
+	}
+
+	if (!hay_colision)
+	{
+		pos_x += x;
 	}
 	
 

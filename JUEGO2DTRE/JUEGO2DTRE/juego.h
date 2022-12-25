@@ -17,10 +17,12 @@ public:
 	static void dibujar_tablero();
 	static void dibujar_cuadrados();
 	static void chequear_colicion();
+	static void chequear_linias();
 
 private:
 	static int  w ,h;
 	static float fps;
+	static float tiempo_actualizar;
 	static figura pieza;
 	static list <cuadrado> cuadrados;
 };

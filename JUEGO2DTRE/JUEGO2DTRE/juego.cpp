@@ -2,6 +2,7 @@
 
 int juego::w = 800, juego::h = 600;
 float juego::fps = 60.f;
+float juego::tiempo_actualizar = 1000.f;
 figura juego::pieza(rand()%6+1);
 list<cuadrado> juego::cuadrados;
 juego::juego()
@@ -64,7 +65,7 @@ void juego::procesar_teclado(unsigned char c, int x, int y)
 	break;
 
 	case 'S': case 's':
-	pieza.set_y(-30);
+		tiempo_actualizar = 50;
 	break;
 
 	case ' ':
@@ -86,10 +87,13 @@ void juego::actualizar()
 	static float tiempo_transcurrido = 0;
 
 	static float actualizar_cuadrado = 0;
+
+	
+
 	if (glutGet(GLUT_ELAPSED_TIME) >  tiempo_transcurrido + 1.f/fps)
 	{
 
-		if (glutGet(GLUT_ELAPSED_TIME) > actualizar_cuadrado + 1000.f)
+		if (glutGet(GLUT_ELAPSED_TIME) > actualizar_cuadrado + tiempo_actualizar)
 		{
 			chequear_colicion();
 			actualizar_cuadrado = glutGet(GLUT_ELAPSED_TIME);
@@ -104,6 +108,7 @@ void juego::actualizar()
 			}
 		}
 		tiempo_transcurrido = glutGet(GLUT_ELAPSED_TIME);
+		tiempo_actualizar = 1000;
 		glutPostRedisplay();
 	}
 	
@@ -167,6 +172,7 @@ void juego::chequear_colicion()
 			{
 				cuadrados.push_back(cuadrado(pieza.calcular_posicion_x(i), pieza.calcular_posicion_y(i)));
 			}
+			chequear_linias();
 			pieza = figura(rand() % 6 + 1);
 
 		}
@@ -174,4 +180,25 @@ void juego::chequear_colicion()
 	}
 }
 
+void juego::chequear_linias()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		int contar_cuadraditos = 0;
+	    list<cuadrado>::iterator p = cuadrados.begin();
+		while (p != cuadrados.end())
+		{
+			if (abs((int)pieza.calcular_posicion_y(i) - p->get_x()) < 15)
+			{
+				contar_cuadraditos++;
+			}
+			p++;
+		}
+		if (contar_cuadraditos == 10)
+		{
+			system("PAUSE");
+		}
+	}
+
+}
 
