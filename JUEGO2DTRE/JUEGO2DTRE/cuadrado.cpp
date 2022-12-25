@@ -24,8 +24,10 @@ void cuadrado::dibujar()
 	case 4:
 	glRotatef(270, 0, 0, 1);
 	break;
+
 	}
-	glTranslatef(pos_x,pos_y,0);
+
+	glTranslatef(pos_x, pos_y, 0);
 
 	glBegin(GL_QUAD_STRIP);
 
