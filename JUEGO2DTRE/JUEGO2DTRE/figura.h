@@ -8,8 +8,8 @@ public:
 	void dibujar();
 	void set_x(double x);
 	void set_y(double y);
-	double get_x(unsigned short num) { return cuadrados[num].get_x(); }
-	double get_y(unsigned short num) { return cuadrados[num].get_y(); }
+	double get_x(unsigned short num) { return cuadrados[num].get_x() + pos_x; }
+	double get_y(unsigned short num) { return cuadrados[num].get_y() + pos_y; }
 	void rotar();
 private:
 	cuadrado cuadrados[4];

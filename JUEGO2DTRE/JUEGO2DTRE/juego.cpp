@@ -7,6 +7,9 @@ list<cuadrado> juego::cuadrados;
 juego::juego()
 {
 	srand(time(NULL));
+
+	pieza = figura(rand() % 6 + 1);
+
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
 
 	glutInitWindowPosition(50, 50);
@@ -88,7 +91,7 @@ void juego::actualizar()
 			{
 				for (int i = 0; i < 4; i++)
 				{
-					cuadrados.push_back(cuadrado(pieza.get_x(i),pieza.get_y(i) - 285));
+					cuadrados.push_back(cuadrado(pieza.get_x(i),pieza.get_y(i)));
 				}
 				pieza = figura(rand()%6+1);
 				

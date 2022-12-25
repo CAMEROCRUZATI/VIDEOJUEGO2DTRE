@@ -85,6 +85,9 @@ void figura::dibujar()
 	case 5:
 		glColor3f(1, 0, 0);
 		break;
+	case 6:
+		glColor3f(0, 1, 0);
+		break;
 	}
 
 	
