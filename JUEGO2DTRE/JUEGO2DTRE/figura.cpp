@@ -3,7 +3,7 @@
 figura::figura(unsigned short num)
 {
 	id = num;
-
+	rotacion = 1;
 	switch (id)
 	{
 	case 1:
@@ -70,9 +70,50 @@ void figura::dibujar()
 		glColor3f(1, 0, 0);
 		break;
 	}
+
+	glPushMatrix();
+	switch (rotacion)
+	{
+	case 2:
+	glRotatef(90, 0, 0, 1);
+	break;
+	case 3:
+	glRotatef(180, 0, 0, 1);
+	break;
+	case 4:
+	glRotatef(270, 0, 0, 1);
+	break;
+	}
 	
 	for (int i = 0; i < 4; i++)
 	{
 		cuadrados[i].dibujar();
 	}
+	glPopMatrix();
 }
+
+void figura::set_x(double x)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		cuadrados[i].set_x(x);
+	}
+
+}
+
+void figura::set_y(double y)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		cuadrados[i].set_y(y);
+	}
+
+}
+
+void figura::rotar()
+{
+	rotacion++;
+	if (rotacion > 4) rotacion = 1;
+
+}
+
