@@ -4,6 +4,7 @@ class cuadrado
 {
 public:
 	cuadrado();
+	cuadrado(double x, double y) { pos_x = x, pos_y = y; }
 	void dibujar();
 	void set_x(double x) { pos_x += x; }
 	void set_y(double y) { pos_y += y; }

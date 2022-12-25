@@ -41,12 +41,20 @@ figura::figura(unsigned short num)
 	}
 
 }
-void figura::actualizar()
+bool figura::actualizar()
 {
+	bool colisiono = false;
+
 	if (pos_y > -285)
 	{
 		pos_y -= 30;
 	}
+	else
+	{
+		colisiono = true;
+	}
+
+	return colisiono;
 }
  
 void figura::dibujar()
@@ -98,21 +106,19 @@ void figura::set_x(double x)
 			{
 				pos_x += x;
 			}
-
 		}
 	}
-	//pos_x += x;
+	
 
 }
 
 void figura::set_y(double y)
 {
+	
 	if (pos_y > -285)
 	{
 		pos_y += y;
 	}
-	
-
 }
 
 void figura::rotar()

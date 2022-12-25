@@ -3,6 +3,7 @@
 int juego::w = 800, juego::h = 600;
 float juego::fps = 60.f;
 figura juego::pieza(1);
+list<cuadrado> juego::cuadrados;
 juego::juego()
 {
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
@@ -79,7 +80,14 @@ void juego::actualizar()
 		if (glutGet(GLUT_ELAPSED_TIME) > actualizar_cuadrado + 1000.f)
 		{
 			actualizar_cuadrado = glutGet(GLUT_ELAPSED_TIME);
-			pieza.actualizar();
+			if (pieza.actualizar())
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					cuadrados.push_back(cuadrado(pieza.get_x(i),pieza.get_y(i)));
+				}
+				
+			}
 		}
 		tiempo_transcurrido = glutGet(GLUT_ELAPSED_TIME);
 		glutPostRedisplay();

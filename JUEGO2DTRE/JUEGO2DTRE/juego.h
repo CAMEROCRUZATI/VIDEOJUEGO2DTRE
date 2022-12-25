@@ -2,6 +2,7 @@
 #include "GL\glut.h"
 #include "figura.h"
 #include <iostream>
+#include <list>
 
 using namespace std;
 class juego
@@ -18,4 +19,5 @@ private:
 	static int  w ,h;
 	static float fps;
 	static figura pieza;
+	static list <cuadrado> cuadrados;
 };
