@@ -31,13 +31,13 @@ void cuadrado::dibujar()
 
 	glBegin(GL_QUAD_STRIP);
 
-	glVertex2f(0, 0);
+	glVertex2f(-15, -15);
 
-	glVertex2f(30, 0);
+	glVertex2f(15, -15);
 
-	glVertex2f(0, 30);
+	glVertex2f(-15, 15);
 
-	glVertex2f(30, 30);
+	glVertex2f(15, 15);
 
 	glEnd();
 
