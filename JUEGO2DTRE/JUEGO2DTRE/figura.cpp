@@ -38,6 +38,12 @@ figura::figura(unsigned short num)
 		cuadrados[2].set_x(-30);
 		cuadrados[3].set_x(-60);
 		break;
+	case 6:
+		cuadrados[1].set_x(-30);
+		cuadrados[2].set_y(30);
+		cuadrados[3].set_x(30);
+		cuadrados[3].set_y(30);
+		break;
 	}
 
 }

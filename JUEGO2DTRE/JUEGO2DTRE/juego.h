@@ -3,6 +3,7 @@
 #include "figura.h"
 #include <iostream>
 #include <list>
+#include <ctime>
 
 using namespace std;
 class juego
@@ -14,6 +15,7 @@ public:
 	static void actualizar();
 	static void iniciar();
 	static void dibujar_tablero();
+	static void dibujar_cuadrados();
 
 private:
 	static int  w ,h;
