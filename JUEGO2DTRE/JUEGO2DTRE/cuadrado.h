@@ -5,8 +5,8 @@ class cuadrado
 public:
 	cuadrado();
 	void dibujar();
-	void set_x(double x) { pos_x = x; }
-	void set_y(double y) { pos_y = y; }
+	void set_x(double x) { pos_x += x; }
+	void set_y(double y) { pos_y += y; }
 	void actualizar();
 	double get_x() { return pos_x; }
 	double get_y() { return pos_y; }
