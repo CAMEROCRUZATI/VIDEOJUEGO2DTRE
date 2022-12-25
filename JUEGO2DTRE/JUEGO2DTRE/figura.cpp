@@ -4,7 +4,7 @@ figura::figura(unsigned short num)
 {
 	id = num;
 	rotacion = 1;
-	pos_x = 0;
+	pos_x = 15;
 	pos_y = 345;
 	switch (id)
 	{
@@ -86,7 +86,22 @@ void figura::dibujar()
 
 void figura::set_x(double x)
 {
-	pos_x += x;
+	if (x > 0)
+	{
+		if (pos_x < 135)
+		{
+			pos_x += x;
+		}
+		else
+		{
+			if (pos_x > -135)
+			{
+				pos_x += x;
+			}
+
+		}
+	}
+	//pos_x += x;
 
 }
 
