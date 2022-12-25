@@ -18,7 +18,7 @@ juego::juego()
 	glutInitWindowSize(w, h);
 
 
-	glutCreateWindow("tetris extremos Super Mega");
+	glutCreateWindow("JUEGO EN 2D TETRIS");
 	glutDisplayFunc(dibujar);
 	glutKeyboardFunc(procesar_teclado);
 	glutIdleFunc(actualizar);
@@ -27,7 +27,7 @@ juego::juego()
 
 void juego::iniciar()
 {
-	glClearColor(0.5, 0, 0.5, 1);
+	glClearColor(1.0f,0.5f,0.0f,1);
 	glMatrixMode(GL_PROJECTION); glLoadIdentity();
 	glOrtho(0, w, 0, h, -1, 1);
 	glMatrixMode(GL_MODELVIEW);glLoadIdentity();

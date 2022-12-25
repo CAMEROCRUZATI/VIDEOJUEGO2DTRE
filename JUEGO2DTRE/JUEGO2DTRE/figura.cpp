@@ -126,7 +126,7 @@ void figura::set_x(double x)
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			if (abs((int)calcular_posicion_x(i) - 130) < 15)
+			if (abs((int)calcular_posicion_x(i) + 130) < 15)
 			{
 				hay_colision = true;
 
