@@ -2,7 +2,7 @@
 
 int juego::w = 800, juego::h = 600;
 float juego::fps = 60.f;
-figura juego::ele(1);
+figura juego::ele(2);
 juego::juego()
 {
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
