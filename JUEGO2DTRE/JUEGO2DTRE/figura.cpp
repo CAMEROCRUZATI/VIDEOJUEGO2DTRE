@@ -51,14 +51,22 @@ bool figura::actualizar()
 {
 	bool colisiono = false;
 
-	if (pos_y > -285)
+	for (int i = 0; i < 4; i++)
+	{
+		if ((int)calcular_posicion_y(i) > -280)
+		{
+			
+		}
+		else
+		{
+			colisiono = true;
+		}
+	}
+	if (!colisiono)
 	{
 		pos_y -= 30;
 	}
-	else
-	{
-		colisiono = true;
-	}
+	
 
 	return colisiono;
 }

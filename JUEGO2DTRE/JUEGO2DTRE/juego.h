@@ -16,6 +16,7 @@ public:
 	static void iniciar();
 	static void dibujar_tablero();
 	static void dibujar_cuadrados();
+	static void chequear_colicion();
 
 private:
 	static int  w ,h;
