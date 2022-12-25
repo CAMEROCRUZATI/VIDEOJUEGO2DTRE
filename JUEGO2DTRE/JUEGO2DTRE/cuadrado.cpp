@@ -4,14 +4,27 @@
 
 cuadrado::cuadrado()
 {
-	pos_y = 330;
+	pos_y = 0;
 	pos_x = 0;
 }
 
 void cuadrado::dibujar()
 {
-	glPushMatrix();
+	
 
+	glPushMatrix();
+	switch (rotacion)
+	{
+	case 2:
+	glRotatef(90, 0, 0, 1);
+	break;
+	case 3:
+	glRotatef(180, 0, 0, 1);
+	break;
+	case 4:
+	glRotatef(270, 0, 0, 1);
+	break;
+	}
 	glTranslatef(pos_x,pos_y,0);
 
 	//glColor3f(0, 0, 1);
@@ -33,5 +46,10 @@ void cuadrado::dibujar()
 
 void cuadrado::actualizar()
 {
-	pos_y -= 30;
+	
+}
+
+void cuadrado::set_rotacion(unsigned short num)
+{
+	rotacion = num;
 }
