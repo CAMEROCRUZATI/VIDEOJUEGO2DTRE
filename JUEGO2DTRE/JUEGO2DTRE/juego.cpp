@@ -188,7 +188,7 @@ void juego::chequear_linias()
 	    list<cuadrado>::iterator p = cuadrados.begin();
 		while (p != cuadrados.end())
 		{
-			if (abs((int)pieza.calcular_posicion_y(i) - p->get_x()) < 15)
+			if (abs((int)pieza.calcular_posicion_y(i) - p->get_y()) < 15)
 			{
 				contar_cuadraditos++;
 			}
@@ -196,7 +196,24 @@ void juego::chequear_linias()
 		}
 		if (contar_cuadraditos == 10)
 		{
-			system("PAUSE");
+			p = cuadrados.begin();
+			while (p != cuadrados.end())
+			{
+				if (abs((int)pieza.calcular_posicion_y(i) - p->get_y()) < 15)
+				{
+					p = cuadrados.erase(p);
+					system("PAUSE");
+				}
+				else
+				{
+					if (p->get_y() > ((int)pieza.calcular_posicion_y(i)))
+					{
+						p->set_y(-30);
+					}
+					p++;
+				}
+				
+			}
 		}
 	}
 
