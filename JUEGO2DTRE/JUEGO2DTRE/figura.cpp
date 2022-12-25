@@ -141,16 +141,35 @@ void figura::rotar()
 	}
 }
 
-double figura::get_angulo_cuadradito(unsigned short  num)
+double figura::get_angulo_cuadradito(unsigned short  int num)
 {
-	double angulo_cuadrado = atan2f(cuadrados[num].get_x(), cuadrados[num].get_y());
+	double angulo_cuadrado = atan2f(cuadrados[num].get_y(), cuadrados[num].get_x());
 
-	cout << rad2deg(angulo_cuadrado) << endl;
 
 	double rotacion_local = (rotacion - 1) * 90;
 
 
-	return angulo_cuadrado + rotacion_local;
+	return (angulo_cuadrado) + deg2rad(rotacion_local);
 
+}
+
+double figura::calcular_posicion_x(unsigned short num)
+{
+	double hipotenusa;
+
+	hipotenusa = sqrt(pow((cuadrados[num].get_x()), 2) + pow((cuadrados[num].get_y()), 2));
+
+	
+	return cos(get_angulo_cuadradito(num)) * hipotenusa + pos_x;
+}
+
+double figura::calcular_posicion_y(unsigned short num)
+{
+	double hipotenusa;
+
+	hipotenusa = sqrt(pow((cuadrados[num].get_x()), 2) + pow((cuadrados[num].get_y()), 2));
+
+
+	return sin(get_angulo_cuadradito(num)) * hipotenusa + pos_y;
 }
 
