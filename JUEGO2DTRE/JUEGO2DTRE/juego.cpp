@@ -103,6 +103,7 @@ void juego::actualizar()
 				{
 					cuadrados.push_back(cuadrado(pieza.calcular_posicion_x(i), pieza.calcular_posicion_y(i)));
 				}
+				chequear_linias();
 				pieza = figura(rand()%6+1);
 				
 			}
@@ -151,6 +152,7 @@ void juego::dibujar_cuadrados()
 
 void juego::chequear_colicion()
 {
+	bool gameover = false;
 	list<cuadrado>::iterator p = cuadrados.begin();
 	while (p != cuadrados.end())
 	{
@@ -171,12 +173,21 @@ void juego::chequear_colicion()
 			for (int i = 0; i < 4; i++)
 			{
 				cuadrados.push_back(cuadrado(pieza.calcular_posicion_x(i), pieza.calcular_posicion_y(i)));
+				if ((int)pieza.calcular_posicion_y(i) > 300)
+				{
+					gameover = true;
+				}
 			}
 			chequear_linias();
+			
 			pieza = figura(rand() % 6 + 1);
 
 		}
 		p++;
+	}
+	if (gameover)
+	{
+		exit(1);
 	}
 }
 
@@ -191,6 +202,7 @@ void juego::chequear_linias()
 			if (abs((int)pieza.calcular_posicion_y(i) - p->get_y()) < 15)
 			{
 				contar_cuadraditos++;
+				cout << p->get_y() << endl;
 			}
 			p++;
 		}
@@ -202,7 +214,7 @@ void juego::chequear_linias()
 				if (abs((int)pieza.calcular_posicion_y(i) - p->get_y()) < 15)
 				{
 					p = cuadrados.erase(p);
-					system("PAUSE");
+					
 				}
 				else
 				{
